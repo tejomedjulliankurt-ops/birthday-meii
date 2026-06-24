@@ -24,4 +24,51 @@
 
     <h2>❤️ Love Always ❤️</h2>
     <p><b>Bbyyyyyyy</b></p>
-</div>
+</div><style>
+.heart{
+    position:fixed;
+    bottom:-20px;
+    font-size:24px;
+    animation:float 8s linear infinite;
+    pointer-events:none;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-110vh);
+        opacity:0;
+    }
+}
+</style>
+<script>
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (20 + Math.random() * 25) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 8000);
+}, 400);
+</script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<script>
+function openGift(){
+    document.getElementById("gift").style.display="none";
+    document.getElementById("message").style.display="block";
+
+    confetti({
+        particleCount:200,
+        spread:120,
+        origin:{ y:0.6 }
+    });
+}
+</script>
